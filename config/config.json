@@ -1,0 +1,55 @@
+{
+    "data": {
+        "train_file": "data/gigaword/train.json",
+        "test_file": "data/gigaword/valid.json",
+        "emd_dim": 200,
+        "source_max_seq_length": 60,
+        "target_max_seq_length": 20,
+        "embedding_filepath": "data/gigaword/emd_weight.npy",
+        "start_id": 1,
+        "end_id": 2,
+        "word_num": 29911
+    },
+    "encoder": {
+        "cell_classname": "tensorflow.nn.rnn_cell.GRUCell",
+        "encoder_params": {},
+        "cell": {
+            "num_units": 128,
+            "cell_params": {}
+        }
+    },
+    "decoder": {
+        "cell_classname": "tensorflow.nn.rnn_cell.GRUCell",
+        "cell": {
+            "num_units": 256,
+            "cell_params": {}
+        },
+        "variable_size": 256,
+        "beam_search_width": 10,
+        "length_penalty_weight": 0.65
+    },
+    "model": {},
+    "base_dir": "/home/stevenwd/RNN_Context/",
+    "train_op": {
+        "name": "Adam",
+        "learning_rate": 0.001,
+        "params": {},
+        "lr_decay": {
+            "decay_type": "",
+            "decay_steps": 100,
+            "decay_rate": 0.999,
+            "start_decay_at": 1000,
+            "stop_decay_at": "tf.int32.max",
+            "min_learning_rate": 1e-12,
+            "staircase": false
+        },
+        "clip_gradients": 5.0,
+        "sync_replicas": 0,
+        "sync_replicas_to_aggregate": 0
+    },
+    "train": {
+        "batch_size": 762,
+        "epoch_num": 10,
+        "metric_path": "metrics.rouge"
+    }
+}
