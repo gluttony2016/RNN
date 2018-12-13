@@ -1,6 +1,6 @@
 import argparse
 # from data.LCSTS.preprocess import preprocess
-from data.gigaword.preprocess import preprocess
+from preprocess import preprocess
 import json
 from config.configurable import Configurable
 from train_op import build_train_op
