@@ -1,0 +1,2 @@
+# RNN
+learn simple rnn
